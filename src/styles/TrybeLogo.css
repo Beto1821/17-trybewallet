@@ -1,0 +1,27 @@
+.trybe__wallet__logo {
+  display: flex;
+  flex-direction: column;
+
+  /* transform: scale(0.6); */
+}
+
+.trybe__wallet__logo div {
+  position: relative;
+}
+
+.trybe__wallet__logo div :nth-child( 2 ) {
+  bottom: -20%;
+  height: 70px;
+  left: 50%;
+  position: absolute;
+  transform: rotate(355deg);
+  width: 70px;
+}
+
+.trybe__wallet__logo span {
+  font-size: 2rem;
+  font-weight: 200;
+  justify-self: center;
+  letter-spacing: 4px;
+  margin: 0 0 0 auto;
+}
