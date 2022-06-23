@@ -13,7 +13,7 @@ export const setCurrenciesAction = (currencies) => ({
   currencies,
 });
 
-export const setErrorAction = (error) => ({
+export const getErrorAction = (error) => ({
   type: GET_ERROR,
   error,
 });
@@ -25,6 +25,6 @@ export const fetchCurrenciesAction = () => async (dispatch) => {
     delete response.USDT;
     dispatch(setCurrenciesAction(Object.key(response)));
   } catch (error) {
-    dispatch(setErrorAction(error));
+    dispatch(getErrorAction(error));
   }
 };
