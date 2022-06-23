@@ -1,27 +1,33 @@
 .trybe__wallet__logo {
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
-
-  /* transform: scale(0.6); */
+  max-width: 100px;
 }
 
 .trybe__wallet__logo div {
   position: relative;
+  width: 100%;
+}
+
+.trybe__wallet__logo div :nth-child( 1 ) {
+  width: 100%;
 }
 
 .trybe__wallet__logo div :nth-child( 2 ) {
-  bottom: -20%;
-  height: 70px;
-  left: 50%;
+  height: 22px;
+  left: 32%;
   position: absolute;
+  top: 50%;
   transform: rotate(355deg);
-  width: 70px;
+  width: 22px;
 }
 
 .trybe__wallet__logo span {
-  font-size: 2rem;
-  font-weight: 200;
-  justify-self: center;
-  letter-spacing: 4px;
-  margin: 0 0 0 auto;
+  bottom: -45%;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 0;
 }

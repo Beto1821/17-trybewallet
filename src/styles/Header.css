@@ -1,0 +1,91 @@
+header {
+  align-items: center;
+  color: var(--primary-color);
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  margin: auto;
+  padding: 0 20px;
+  width: 100vw;
+}
+
+.header__wallet_exchange {
+  align-items: center;
+  background-color: var(--alt-bg-color);
+  color: var(--alt-text-color);
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  margin: 4px;
+  padding: 4px 4px 4px 20px;
+  width: fit-content;
+}
+
+.container {
+  align-items: baseline;
+  font-size: 0.8rem;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.header_exit {
+  background-color: var(--primary-color);
+  color: var(--alt-text-color);
+}
+
+.total_field , .currency_field {
+  align-items: center;
+  color: var(--alt-text-color);
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+}
+
+.red {
+  background-color: rgb(204, 32, 32);
+}
+
+.yellow {
+  background-color: rgb(255, 251, 0);
+}
+
+.circle {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 2.4rem;
+  justify-content: center;
+  transition: ease 0.5s;
+  width: 2.4rem;
+}
+
+.header_exit:hover {
+  transform: translateY(-0.1rem);
+}
+
+.header_exit span {
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+i {
+  font-size: 1rem;
+}
+
+.header__wallet_field {
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--alt-text-color);
+  display: flex;
+  font-size: 0.8rem;
+  gap: 8px;
+  justify-content: space-between;
+  max-width: 14rem;
+  min-width: 5.2rem;
+  padding: 2px;
+}
+
+.header__wallet_field i {
+  font-size: 1.2rem;
+}

@@ -3,19 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchCurrenciesAction } from '../actions';
 import WalletHeader from '../components/WalletHeader';
+import WalletForm from '../components/WalletForm';
 
 class Wallet extends React.Component {
-  state = {
-    // currencies: 'USD',
-  };
-
   componentDidMount() {
     const { fetchCurrencies } = this.props;
     fetchCurrencies();
   }
 
   render() {
-    return <WalletHeader />;
+    return (
+      <div>
+        <WalletHeader />
+        <WalletForm />
+      </div>
+    );
   }
 }
 

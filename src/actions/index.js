@@ -22,7 +22,7 @@ export const fetchCurrenciesAction = () => async (dispatch) => {
   try {
     const URL = 'https://economia.awesomeapi.com.br/json/all';
     const response = await (await fetch(URL)).json();
-    console.log(Object.keys(response));
+    console.log(response);
     dispatch(setCurrenciesAction(Object.keys(response)
       .filter((res) => res !== 'USDT')));
   } catch (error) {

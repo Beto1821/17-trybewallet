@@ -1,5 +1,5 @@
 .text-center {
-  color: var(--white);
+  color: var(--text-color);
   display: block;
   font-size: 23px;
   margin: -50px 0 80px;
@@ -8,7 +8,7 @@
 }
 
 .login__page {
-  background-color: blanchedalmond;
+  background-color: rgba(119, 156, 213, 0.89);
   border-radius: 3px;
   left: 50%;
   padding: 100px 70px;
@@ -23,7 +23,7 @@
 }
 
 .input-container label {
-  color: var(--white);
+  color: var(--text-color);
   font-size: 16px;
   left: 0;
   position: absolute;
@@ -35,7 +35,7 @@
   background: transparent;
   border: 0;
   border-bottom: 1px solid #555;
-  color: var(--white);
+  color: var(--text-color);
   font-size: 16px;
   padding: 8px 0 5px;
   width: 100%;
@@ -51,7 +51,7 @@
   background-color: #e74c3c;
   border: 0;
   border-radius: 2px;
-  color: var(--white);
+  color: var(--text-color);
   cursor: pointer;
   margin-top: 50px;
   outline: none;
