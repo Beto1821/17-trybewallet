@@ -2,6 +2,7 @@
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const SET_CURRENCIES = 'SET_CURRENCIES';
 export const GET_ERROR = 'GET_ERROR';
+export const ADD_EXPENSE = 'ADD_EXPENSE';
 
 export const setUserInfoAction = (email) => ({
   type: SAVE_USER_INFO,
@@ -22,10 +23,21 @@ export const fetchCurrenciesAction = () => async (dispatch) => {
   try {
     const URL = 'https://economia.awesomeapi.com.br/json/all';
     const response = await (await fetch(URL)).json();
-    console.log(response);
     dispatch(setCurrenciesAction(Object.keys(response)
       .filter((res) => res !== 'USDT')));
   } catch (error) {
     dispatch(getErrorAction(error));
   }
+};
+
+export const addExpenses = (expenses) => async (dispatch) => {
+  const URL = 'https://economia.awesomeapi.com.br/json/all';
+  const response = await (await fetch(URL)).json();
+  dispatch({
+    type: ADD_EXPENSE,
+    expenses: {
+      ...expenses,
+      exchangeRates: response,
+    },
+  });
 };
