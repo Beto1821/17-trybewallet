@@ -3,6 +3,7 @@ export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const SET_CURRENCIES = 'SET_CURRENCIES';
 export const GET_ERROR = 'GET_ERROR';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
+export const REM_EXPENSE = 'REM_EXPENSE';
 
 export const setUserInfoAction = (email) => ({
   type: SAVE_USER_INFO,
@@ -41,3 +42,8 @@ export const addExpenses = (expenses) => async (dispatch) => {
     },
   });
 };
+
+export const removeExpenseAction = (id) => ({
+  type: REM_EXPENSE,
+  id,
+});

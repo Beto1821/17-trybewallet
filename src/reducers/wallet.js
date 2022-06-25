@@ -22,6 +22,11 @@ function wallet(state = INITIAL_STATE, action) {
       ...state,
       expenses: [...state.expenses, action.expenses],
     };
+  case 'REM_EXPENSE':
+    return {
+      ...state,
+      expenses: state.expenses.filter((exp) => exp.id !== action.id),
+    };
   default:
     return state;
   }
