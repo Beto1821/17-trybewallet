@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeExpenseAction } from '../actions';
+import { removeExpenseAction, editExpenseAction } from '../actions';
 
 class WalletTable extends Component {
   render() {
-    const { expenses, handleClickRemove } = this.props;
+    const { expenses, handleClickRemove, handleEdit } = this.props;
     return (
       <section>
         <table>
@@ -35,19 +35,20 @@ class WalletTable extends Component {
                 <td>Real</td>
                 <td>
                   <button
-                    data-testid="edit-btn"
-                    type="button"
-                  >
-                    EDITAR
-                  </button>
-                </td>
-                <td>
-                  <button
                     data-testid="delete-btn"
                     type="button"
                     onClick={ () => handleClickRemove(id) }
                   >
                     EXCLUIR
+                  </button>
+                </td>
+                <td>
+                  <button
+                    data-testid="edit-btn"
+                    type="button"
+                    onClick={ () => handleEdit(id) }
+                  >
+                    EDITAR
                   </button>
                 </td>
               </tr>
@@ -63,10 +64,12 @@ class WalletTable extends Component {
 WalletTable.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
   handleClickRemove: PropTypes.func.isRequired,
+  handleEdit: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   handleClickRemove: (id) => dispatch(removeExpenseAction(id)),
+  handleEdit: (id) => dispatch(editExpenseAction(id)),
 });
 
 const mapStateToProps = ({ wallet }) => ({

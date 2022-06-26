@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   currencies: [],
   error: '',
   expenses: [],
+  editMode: false,
 };
 
 function wallet(state = INITIAL_STATE, action) {
@@ -26,6 +27,11 @@ function wallet(state = INITIAL_STATE, action) {
     return {
       ...state,
       expenses: state.expenses.filter((exp) => exp.id !== action.id),
+    };
+  case 'EDIT_EXPENSE':
+    return {
+      ...state,
+      editMode: action.editMode,
     };
   default:
     return state;

@@ -30,7 +30,7 @@ class WalletForm extends Component {
 
   render() {
     const { value, description, currency, method, tag } = this.state;
-    const { currencies } = this.props;
+    const { currencies, editMode } = this.props;
     return (
       <form>
         <label htmlFor="Value">
@@ -104,7 +104,7 @@ class WalletForm extends Component {
           id="despesa"
           onClick={ this.handleClick }
         >
-          Adicionar despesa
+          { editMode ? 'Editar Despesa' : 'Adicionar despesa' }
         </button>
 
       </form>
@@ -115,10 +115,12 @@ class WalletForm extends Component {
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   addExpenseGlobalState: PropTypes.func.isRequired,
+  editMode: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({ wallet }) => ({
   currencies: wallet.currencies,
+  editMode: wallet.editMode,
 });
 
 const mapDispatchToProps = (dispatch) => ({
