@@ -46,7 +46,7 @@ class WalletTable extends Component {
                   <button
                     data-testid="edit-btn"
                     type="button"
-                    onClick={ () => handleEdit(id) }
+                    onClick={ () => handleEdit(id, exchangeRates) }
                   >
                     EDITAR
                   </button>
@@ -70,11 +70,12 @@ WalletTable.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   handleClickRemove: (id) => dispatch(removeExpenseAction(id)),
-  handleEdit: (id) => dispatch(editExpenseAction(id)),
+  handleEdit: (id, exchangeRates) => dispatch(editExpenseAction(id, exchangeRates)),
 });
 
 const mapStateToProps = ({ wallet }) => ({
   expenses: wallet.expenses,
+  editMode: wallet.editMode,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletTable);

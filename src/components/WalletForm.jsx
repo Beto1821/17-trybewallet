@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addExpenses } from '../actions';
+import { addExpenses, upDateExpense } from '../actions';
 
 const INITIAL_STATE = {
   id: 0,
@@ -19,9 +19,16 @@ class WalletForm extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    const { addExpenseGlobalState } = this.props;
-    addExpenseGlobalState(this.state);
-    this.setState(({ id }) => ({ ...INITIAL_STATE, id: id + 1 }));
+    const { addExpenseGlobalState, editMode,
+      editExpenseAction, exchangeRates } = this.props;
+    if (!editMode) {
+      addExpenseGlobalState(this.state);
+      this.setState(({ id }) => ({ ...INITIAL_STATE, id: id + 1 }));
+    } else {
+      const { idEdit: id } = this.props;
+      console.log(id);
+      editExpenseAction({ ...this.state, id, exchangeRates });
+    }
   }
 
   handleChange = ({ target }) => {
@@ -116,14 +123,24 @@ WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   addExpenseGlobalState: PropTypes.func.isRequired,
   editMode: PropTypes.bool.isRequired,
+  idEdit: PropTypes.number.isRequired,
+  editExpenseAction: PropTypes.func.isRequired,
+  exchangeRates: PropTypes.objectOf(PropTypes.objectOf),
+};
+WalletForm.defaultProps = {
+  exchangeRates: {},
 };
 
 const mapStateToProps = ({ wallet }) => ({
   currencies: wallet.currencies,
   editMode: wallet.editMode,
+  idEdit: wallet.idEdit,
+  expenses: wallet.expenses,
+  exchangeRates: wallet.exchangeRates,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   addExpenseGlobalState: (expense) => dispatch(addExpenses(expense)),
+  editExpenseAction: (newExpense) => dispatch(upDateExpense(newExpense)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

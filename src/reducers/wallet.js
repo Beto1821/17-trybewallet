@@ -4,6 +4,8 @@ const INITIAL_STATE = {
   error: '',
   expenses: [],
   editMode: false,
+  idEdit: 0,
+  exchangeRates: {},
 };
 
 function wallet(state = INITIAL_STATE, action) {
@@ -32,7 +34,18 @@ function wallet(state = INITIAL_STATE, action) {
     return {
       ...state,
       editMode: action.editMode,
+      idEdit: action.id,
+      exchangeRates: action.exchangeRates,
     };
+  case 'UPDATE_EXPENSE':
+    return { ...state,
+      editMode: false,
+      expenses: state.expenses.map((item) => {
+        if (item.id === action.newExpense.id) {
+          return action.newExpense;
+        }
+        return item;
+      }) };
   default:
     return state;
   }

@@ -5,6 +5,7 @@ export const GET_ERROR = 'GET_ERROR';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REM_EXPENSE = 'REM_EXPENSE';
 export const EDIT_EXPENSE = 'EDIT_EXPENSE';
+export const UPDATE_EXPENSE = 'UPDATE_EXPENSE';
 
 export const setUserInfoAction = (email) => ({
   type: SAVE_USER_INFO,
@@ -49,8 +50,14 @@ export const removeExpenseAction = (id) => ({
   id,
 });
 
-export const editExpenseAction = (id) => ({
+export const editExpenseAction = (id, exchangeRates) => ({
   type: EDIT_EXPENSE,
   id,
+  exchangeRates,
   editMode: true,
+});
+
+export const upDateExpense = (newExpense) => ({
+  type: UPDATE_EXPENSE,
+  newExpense,
 });
