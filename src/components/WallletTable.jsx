@@ -51,6 +51,7 @@ class WalletTable extends Component {
                     EDITAR
                   </button>
                 </td>
+
               </tr>
             ))}
           </thead>

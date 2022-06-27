@@ -17,7 +17,8 @@ class WalletForm extends Component {
       ...INITIAL_STATE,
     };
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
     const { addExpenseGlobalState } = this.props;
     addExpenseGlobalState(this.state);
     this.setState(({ id }) => ({ ...INITIAL_STATE, id: id + 1 }));
@@ -32,7 +33,7 @@ class WalletForm extends Component {
     const { value, description, currency, method, tag } = this.state;
     const { currencies, editMode } = this.props;
     return (
-      <form>
+      <form onSubmit={ this.handleClick }>
         <label htmlFor="Value">
           Valor:
           <input
@@ -100,9 +101,8 @@ class WalletForm extends Component {
         </label>
 
         <button
-          type="button"
+          type="submit"
           id="despesa"
-          onClick={ this.handleClick }
         >
           { editMode ? 'Editar Despesa' : 'Adicionar despesa' }
         </button>
