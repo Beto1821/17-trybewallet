@@ -35,21 +35,20 @@ class WalletTable extends Component {
                 <td>Real</td>
                 <td>
                   <button
-                    data-testid="delete-btn"
-                    type="button"
-                    onClick={ () => handleClickRemove(id) }
-                  >
-                    EXCLUIR
-                  </button>
-                </td>
-                <td>
-                  <button
                     data-testid="edit-btn"
                     type="button"
                     onClick={ () => handleEdit(id, exchangeRates) }
                   >
                     EDITAR
                   </button>
+                  <button
+                    data-testid="delete-btn"
+                    type="button"
+                    onClick={ () => handleClickRemove(id) }
+                  >
+                    EXCLUIR
+                  </button>
+
                 </td>
 
               </tr>
